@@ -1,0 +1,75 @@
+
+
+<div style="margin: 50px; padding: 50px" class="row">
+      <h3 style="text-align: center;">Reactive-Form</h3>
+  <div class="col-8" >
+    <form [formGroup]="registrationForm" (ngSubmit)="evtClick()">
+      <div class="form-group">
+        <label for="firstID">FirstName <span style="color: red;">*</span></label>
+         <input
+          id="firstID"
+          type="text"
+          class="form-control"
+          name="firstname"
+          formControlName="userFirstname"
+        />
+         <span *ngIf="registrationForm.get('userFirstname')?.touched &&
+                       registrationForm.get('userFirstname')?.errors?.['required']"
+          style="color: red"
+          >Please enter the firstname</span
+        >
+          <span  *ngIf="registrationForm.get('userFirstname')?.touched &&
+                       registrationForm.get('userFirstname')?.errors?.['minlength']"
+          style="color: red"
+          >Please Enter atleast 3 charcters</span
+        >
+        <div class="form-group">
+          <label for="useremail">User Email <span style="color: red;">*</span></label>
+          <input 
+          id="useremail"
+          type="text"
+          class="form-control"
+          name="useremail"
+          formControlName="useremail"
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          />
+          
+          <span *ngIf="registrationForm.get('useremail')?.touched &&
+                       registrationForm.get('useremail')?.errors?.['required']"
+          style="color: red"
+          >Please enter the email</span
+        >
+          <span *ngIf="registrationForm.get('useremail')?.touched &&
+          registrationForm.get('useremail')?.errors?.['pattern']" style="color: red;">
+            Please enter  correct gmail
+          </span>
+
+        </div>
+        <div class="form-group">
+          <label for="userPassword">User Password <span style="color: red;">*</span></label>
+          <input 
+          id="userPassword"
+          type="text"
+          class="form-control"
+          name="userPassword"
+          formControlName="userPassword"
+          />
+          
+          <span *ngIf="registrationForm.get('userPassword')?.touched &&
+                       registrationForm.get('userPassword')?.errors?.['required']"
+          style="color: red"
+          >Please enter your Password</span
+        >
+          <span *ngIf="registrationForm.get('userPassword')?.touched &&
+          registrationForm.get('userPassword')?.errors?.['minlength']" style="color: red;">
+            Please enter  more than 5 charcters
+          </span>
+
+        </div>
+        <br />
+         <button class="btn btn-primary" type="submit" > Click </button>
+      </div>
+    </form>
+  </div>
+</div>
+    
