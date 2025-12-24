@@ -7,6 +7,8 @@ import { TemplateApprochComponent } from './template-approch/template-approch.co
 import { ReactiveApprochComponent } from './reactive-approch/reactive-approch.component';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo.component';
 import { LongTextPipe } from './long-text.pipe';
+import { DiretiveDemoComponent } from './diretive-demo/diretive-demo.component';
+import { HighligthColorDirective } from './highligth-color.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { LongTextPipe } from './long-text.pipe';
     ReactiveApprochComponent,
     PipeDemoComponent,
     LongTextPipe,
+    DiretiveDemoComponent,
+    HighligthColorDirective,
    
   ],
   imports: [
